@@ -9,7 +9,7 @@ def send_secure_message(plaintext: str, aes_key: bytes, hmac_key: bytes):
     # Final message: nonce || ciphertext || hmac
     secure_message = nonce + ciphertext + mac
 
-    print("📤 Sending Secure Message:")
+    print("Sending Secure Message:")
     print("Nonce:", nonce.hex())
     print("Ciphertext:", ciphertext.hex())
     print("HMAC:", mac.hex())
