@@ -93,6 +93,8 @@ HMAC Verified
 Decrypted Message: Hello Bob, this is Alice!
 ```
 ### References
+```text
 Python cryptography documentation – AES-CTR mode
 Python hmac and hashlib modules
 RFC 2104 – HMAC: Keyed-Hashing for Message Authentication
+```
