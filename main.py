@@ -5,7 +5,7 @@ import os
 
 
 def test_tampered_message(aes_key, hmac_key):
-    print("\n🔍 Tampering Test")
+    print("\n Tampering Test")
     message = "This is a secure message."
     secure_msg = send_secure_message(message, aes_key, hmac_key)
 
@@ -36,4 +36,4 @@ if __name__ == "__main__":
         test_tampered_message(aes_key, hmac_key)
 
     else:
-        print("❌ Invalid choice. Please run again and enter 1 or 2.")
+        print(" Invalid choice. Please run again and enter 1 or 2.")
