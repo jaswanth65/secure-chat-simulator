@@ -25,46 +25,45 @@ secure_chat_sim/
 │   └── aes_utils.py        # AES-CTR encryption and decryption
 ├── .gitignore              # Excludes pycache, venv, etc.
 └── README.md               # Documentation file
-```text
-Approach
-1. Genuine Message Flow
-Key Generation: AES and HMAC keys are randomly generated (256-bit each).
 
-Message Encryption: Plaintext is encrypted using AES-CTR with a random nonce.
+## Approach
 
-HMAC Computation: A MAC is computed over nonce||ciphertext.
+### Genuine Message Flow
+1.  **Key Generation:** AES and HMAC keys are randomly generated (256-bit each).
+2.  **Message Encryption:** Plaintext is encrypted using AES-CTR with a random nonce.
+3.  **HMAC Computation:** A MAC is computed over `nonce||ciphertext`.
+4.  **Secure Message Assembly:** Final message = `nonce + ciphertext + hmac`.
+5.  **Receiver Verification:** HMAC is verified before decryption. If valid, message is decrypted and displayed.
 
-Secure Message Assembly: Final message = nonce + ciphertext + hmac.
+### Tampered Message Flow
+1.  A byte in the ciphertext is flipped.
+2.  Receiver detects HMAC mismatch and rejects the message.
 
-Receiver Verification: HMAC is verified before decryption. If valid, message is decrypted and displayed.
+## Challenges & Solutions
 
-2. Tampered Message Flow
-A byte in the ciphertext is flipped.
+### Challenges
+* Understanding AES-CTR internals and nonce/counter behavior.
+* Ensuring reproducibility and modular clarity.
+* Designing tampering scenarios that trigger HMAC failure.
+* Managing byte-level operations and encoding formats.
 
-Receiver detects HMAC mismatch and rejects the message.
+### Solutions
+* Used Python’s `cryptography` library for AES-CTR and standard `hmac` for authentication.
+* Printed all intermediate values (keys, nonce, ciphertext, HMAC) for transparency.
+* Created modular files for sender, receiver, and crypto utilities.
+* Designed CLI prompt to switch between genuine and tampered flows.
+* Ensured reproducibility with consistent encoding and logging.
 
-Challenges & Solutions
-Challenges
-Understanding AES-CTR internals and nonce/counter behavior.
+## How to Run
 
-Ensuring reproducibility and modular clarity.
-
-Designing tampering scenarios that trigger HMAC failure.
-
-Managing byte-level operations and encoding formats.
-
-Solutions
-Used Python’s cryptography library for AES-CTR and hmac standard for authentication.
-
-Printed all intermediate values (keys, nonce, ciphertext, HMAC) for transparency.
-
-Created modular files for sender, receiver, and crypto utilities.
-
-Designed CLI prompt to switch between genuine and tampered flows.
-
-Ensured reproducibility with consistent encoding and logging.
-
-How to Run
+### Step 1: Setup Project Folder
+```bash
+mkdir secure_chat_sim
+cd secure_chat_sim
+### Step 1: Setup Project Folder
+```bash
+mkdir secure_chat_sim
+cd secure_chat_simHow to Run
 Step 1: Setup Project Folder
 Bash
 
