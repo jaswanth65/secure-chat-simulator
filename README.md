@@ -1,6 +1,6 @@
 Title-Implementation of a Secure Chat Protocol Using Python
 
-Overview
+Overview:
 This project is a simplified implementation of a secure messaging protocol developed using Python. It demonstrates core principles of confidentiality and integrity through the use of AES encryption in Counter (CTR) mode and HMAC-SHA256 authentication. The simulator showcases how secure communication can be achieved using symmetric cryptography, ensuring that messages are both encrypted and tamper-proof.
 Unlike traditional plaintext messaging, this protocol encrypts messages and attaches a cryptographic signature (HMAC) to verify authenticity. The design is modular, reproducible, and suitable for educational demonstrations of secure message flow, tampering detection, and key-based authentication.
 
