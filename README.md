@@ -25,7 +25,7 @@ secure_chat_sim/
 │   └── aes_utils.py        # AES-CTR encryption and decryption
 ├── .gitignore              # Excludes pycache, venv, etc.
 └── README.md               # Documentation file
-
+```
 ## Approach
 
 ### Genuine Message Flow
@@ -60,23 +60,16 @@ secure_chat_sim/
 ```bash
 mkdir secure_chat_sim
 cd secure_chat_sim
+```
 ### Step 1: Setup Project Folder
 ```bash
 mkdir secure_chat_sim
 cd secure_chat_simHow to Run
-Step 1: Setup Project Folder
-Bash
-
-mkdir secure_chat_sim
-cd secure_chat_sim
-Step 2: Create and Activate Virtual Environment
-Windows:
-
-Bash
-
+```
+### Step 2: Create and Activate Virtual Environment
+```bash
 py -m venv venv
 venv\Scripts\activate
-Mac/Linux:
 
 Bash
 
