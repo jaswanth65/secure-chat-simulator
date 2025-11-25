@@ -12,8 +12,8 @@ def generate_keys():
     hmac_key_b64 = base64.b64encode(hmac_key).decode()
     # Printed in Base64 for readability
 
-    print("🔐 AES Key (Base64):", aes_key_b64)
-    print("🔐 HMAC Key (Base64):", hmac_key_b64)
+    print(" AES Key (Base64):", aes_key_b64)
+    print(" HMAC Key (Base64):", hmac_key_b64)
 
     return aes_key, hmac_key
 
