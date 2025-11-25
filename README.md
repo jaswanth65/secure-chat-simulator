@@ -25,3 +25,93 @@ secure_chat_sim/
 │   └── aes_utils.py        # AES-CTR encryption and decryption
 ├── .gitignore              # Excludes pycache, venv, etc.
 └── README.md               # Documentation file
+Approach
+1. Genuine Message Flow
+Key Generation: AES and HMAC keys are randomly generated (256-bit each).
+
+Message Encryption: Plaintext is encrypted using AES-CTR with a random nonce.
+
+HMAC Computation: A MAC is computed over nonce||ciphertext.
+
+Secure Message Assembly: Final message = nonce + ciphertext + hmac.
+
+Receiver Verification: HMAC is verified before decryption. If valid, message is decrypted and displayed.
+
+2. Tampered Message Flow
+A byte in the ciphertext is flipped.
+
+Receiver detects HMAC mismatch and rejects the message.
+
+Challenges & Solutions
+Challenges
+Understanding AES-CTR internals and nonce/counter behavior.
+
+Ensuring reproducibility and modular clarity.
+
+Designing tampering scenarios that trigger HMAC failure.
+
+Managing byte-level operations and encoding formats.
+
+Solutions
+Used Python’s cryptography library for AES-CTR and hmac standard for authentication.
+
+Printed all intermediate values (keys, nonce, ciphertext, HMAC) for transparency.
+
+Created modular files for sender, receiver, and crypto utilities.
+
+Designed CLI prompt to switch between genuine and tampered flows.
+
+Ensured reproducibility with consistent encoding and logging.
+
+How to Run
+Step 1: Setup Project Folder
+Bash
+
+mkdir secure_chat_sim
+cd secure_chat_sim
+Step 2: Create and Activate Virtual Environment
+Windows:
+
+Bash
+
+py -m venv venv
+venv\Scripts\activate
+Mac/Linux:
+
+Bash
+
+python3 -m venv venv
+source venv/bin/activate
+Step 3: Install Required Package
+Bash
+
+pip install cryptography
+Step 4: Run the Simulator
+Bash
+
+python main.py
+Choose 1: Genuine secure message flow
+
+Choose 2: Tampered message test
+
+Sample Output
+Plaintext
+
+Sample Input Message: Hello Bob, this is Alice!
+
+AES Key (Base64): ...
+HMAC Key (Base64): ...
+Nonce: ...
+Ciphertext: ...
+HMAC: ...
+
+HMAC Verified
+Decrypted Message: Hello Bob, this is Alice!
+References
+Python cryptography documentation – AES-CTR mode
+
+Python hmac and hashlib modules
+
+SEED Labs – Message Integrity and Authentication Lab
+
+RFC 2104 – HMAC: Keyed-Hashing for Message Authentication
