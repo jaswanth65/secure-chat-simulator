@@ -25,6 +25,7 @@ secure_chat_sim/
 │   └── aes_utils.py        # AES-CTR encryption and decryption
 ├── .gitignore              # Excludes pycache, venv, etc.
 └── README.md               # Documentation file
+```text
 Approach
 1. Genuine Message Flow
 Key Generation: AES and HMAC keys are randomly generated (256-bit each).
