@@ -83,6 +83,7 @@ Hello Bob, this is Alice!
 ```
 
 ### Sample Output
+```bash
 AES Key (Base64): ...
 HMAC Key (Base64): ...
 Nonce: ...
@@ -90,7 +91,7 @@ Ciphertext: ...
 HMAC: ...
 HMAC Verified
 Decrypted Message: Hello Bob, this is Alice!
-
+```
 ### References
 Python cryptography documentation – AES-CTR mode
 Python hmac and hashlib modules
