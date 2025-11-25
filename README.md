@@ -61,50 +61,37 @@ secure_chat_sim/
 mkdir secure_chat_sim
 cd secure_chat_sim
 ```
-### Step 1: Setup Project Folder
-```bash
-mkdir secure_chat_sim
-cd secure_chat_simHow to Run
-```
 ### Step 2: Create and Activate Virtual Environment
 ```bash
 py -m venv venv
 venv\Scripts\activate
-
-Bash
-
-python3 -m venv venv
-source venv/bin/activate
-Step 3: Install Required Package
-Bash
-
+```
+### Step 3: Install Required Package
+```bash
 pip install cryptography
-Step 4: Run the Simulator
-Bash
-
+```
+### Step 4: Run the Simulator
+```bash
 python main.py
+```
 Choose 1: Genuine secure message flow
-
 Choose 2: Tampered message test
 
-Sample Output
-Plaintext
+### Sample Input Message: 
+```bash
+Hello Bob, this is Alice!
+```
 
-Sample Input Message: Hello Bob, this is Alice!
-
+### Sample Output
 AES Key (Base64): ...
 HMAC Key (Base64): ...
 Nonce: ...
 Ciphertext: ...
 HMAC: ...
-
 HMAC Verified
 Decrypted Message: Hello Bob, this is Alice!
-References
+
+### References
 Python cryptography documentation – AES-CTR mode
-
 Python hmac and hashlib modules
-
-SEED Labs – Message Integrity and Authentication Lab
-
 RFC 2104 – HMAC: Keyed-Hashing for Message Authentication
