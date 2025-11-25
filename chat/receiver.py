@@ -7,15 +7,15 @@ def receive_secure_message(secure_message: bytes, aes_key: bytes, hmac_key: byte
     ciphertext = secure_message[16:-32]
     received_mac = secure_message[-32:]
 
-    print("📥 Received Secure Message:")
+    print(" Received Secure Message:")
     print("Nonce:", nonce.hex())
     print("Ciphertext:", ciphertext.hex())
     print("Received HMAC:", received_mac.hex())
 
     if verify_hmac(hmac_key, nonce + ciphertext, received_mac):
         plaintext = decrypt_aes_ctr(nonce, ciphertext, aes_key)
-        print("✅ HMAC Verified. Decrypted Message:", plaintext.decode())
+        print(" HMAC Verified. Decrypted Message:", plaintext.decode())
         return plaintext
     else:
-        print("❌ HMAC Verification Failed. Message Rejected.")
+        print(" HMAC Verification Failed. Message Rejected.")
         return None
